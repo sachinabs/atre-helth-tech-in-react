@@ -1,0 +1,50 @@
+.navigation-container {
+    background: #FFFFFF;
+    border: 0.5px solid #AFA7A7;
+    border-top: none;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    border-top: none;
+    border-right: none;
+    border-left: none;
+}
+
+
+.logo-container {
+    margin-left: 40px;
+}
+
+.right-handler-container {
+    margin-left: auto;
+    margin-right: 60px;
+}
+
+.right-handler-container .info-icon {
+    margin-left: 60px;
+}
+
+#d-details {
+    margin-left: 30px;
+}
+
+#d-name {
+    margin-top: -10px;
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 16px;
+
+    color: #131C33;
+}
+
+.logo {
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 22px;
+    color: #179C8C;
+}

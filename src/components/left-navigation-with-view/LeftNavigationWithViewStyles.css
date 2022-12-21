@@ -1,0 +1,33 @@
+.main-view-container {
+    display: flex;
+    height: calc(100vh - 80px);
+    background-color: #F5F5F5;
+}
+
+.left-navigation-bar {
+    width: 80px;
+    height: calc(100vh - 81px);
+    background: #FFFFFF;
+    border: 0.5px solid #AFA7A7;
+    border-left: none;
+    border-top: none;
+    border-bottom: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    margin-top: 100px;
+    list-style: none
+}
+
+.active {
+    color: aqua;
+    background-color: aquamarine;
+}
