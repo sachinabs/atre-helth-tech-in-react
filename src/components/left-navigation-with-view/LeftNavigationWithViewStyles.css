@@ -29,5 +29,5 @@ li {
 
 .active {
     color: aqua;
-    background-color: aquamarine;
+    border-bottom: 2px solid rgb(166, 166, 166);
 }

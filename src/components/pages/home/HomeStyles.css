@@ -1,0 +1,13 @@
+.home-view {
+    display: flex;
+    height: calc(100vh - 80px);
+    width: calc(100vw - 100px);
+
+    justify-content: center;
+    align-items: center;
+}
+
+.view {
+    width: 1000px;
+    background-color: rgb(240, 22, 22);
+}
