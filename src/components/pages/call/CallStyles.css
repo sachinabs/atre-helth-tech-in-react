@@ -1,0 +1,93 @@
+.video-call-view {
+    width: calc(100vw - 100px);
+    height: calc(100vh - 100px);
+    position: relative;
+}
+
+#myVideo {
+    width: calc(100vw - 100px);
+    /* padding: 20px; */
+    /* height: calc(   100px);   */
+}
+
+td {
+    padding: 10px;
+}
+
+.title {
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+
+}
+
+.menus {
+    padding: 10px;
+    background: #FFFFFF;
+    border-radius: 10px;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    margin-left: 65%;
+}
+
+.value {
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 16px;
+
+    color: #000000;
+
+}
+
+.robo-title {
+
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    /* identical to box height */
+
+    margin-left: 10px;
+    color: #000000;
+}
+
+.message-box {
+    position: absolute;
+    top: 250px;
+    margin-left: 80%;
+}
+
+.buttons {
+    position: absolute;
+    top: 650px;
+    left: 600px;
+}
+
+.endButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+
+    background: #D94D46;
+
+    width: 155px;
+    height: 30px;
+    border-radius: 5px;
+    margin-left: 20px;
+}
+
+.endButton:hover {
+    background: #c5332c;
+    cursor: pointer;
+}
+
+.endButton:hove .button-rol {
+    color: aqua;
+}

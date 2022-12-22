@@ -1,0 +1,99 @@
+.messageBox-container {
+    position: absolute;
+    width: 280px;
+    height: 425px;
+    padding: 10px;
+    margin-left: 82%;
+    background: rgb(255, 255, 255);
+    border-radius: 21px;
+}
+
+.sender {
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+
+    color: #666464;
+
+}
+
+.sender-name-container {
+    padding: 10px;
+    margin-top: 10px;
+    background: #FCFCFC;
+    border-radius: 6px;
+    border: 0.2px solid rgba(0, 0, 0, 0.082);
+}
+
+.sender-name {
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+
+    color: #666464;
+}
+
+.message-from {
+    display: block;
+    background: #179C8C;
+    border-radius: 0px 15.5px 15.5px 15.5px;
+    padding: 10px;
+}
+
+.message {
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+
+    color: #FFFFFF;
+}
+
+.message-container {
+    margin-top: 20px;
+    height: 300px;
+}
+
+.message-to {
+    margin-top: 20px;
+    display: block;
+    padding: 10px;
+    background: #c2c2c2;
+    border-radius: 15.5px 15.5px 0px 15.5px;
+}
+
+.black {
+    color: black;
+}
+
+.input-box {
+    width: 210px;
+    height: 52.11px;
+    outline: transparent;
+    border: none;
+    border-radius: 10px;
+    padding-left: 10px;
+    background: #FCFCFC;
+    border: 0.2px solid rgba(0, 0, 0, 0.226);
+}
+
+.send {
+    border-radius: 10px;
+    margin-left: 5px;
+    width: 50px;
+    height: 52.11px;
+    outline: transparent;
+    border: none;
+    background-color: #ececec;
+    cursor: pointer;
+}
+
+.send:hover {
+    background-color: #dddddd;
+}
+
