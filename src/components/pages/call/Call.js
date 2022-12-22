@@ -9,8 +9,42 @@ import { Link } from 'react-router-dom';
 export default function Call() {
     const [alert, SetShowAlert] = React.useState(false);
 
+    const requestUrl = ` http://localhost:9000/api/sql/getRobo/R001 `
 
-    console.log(alert);
+    const [roboParams, setRoboParams] = React.useState([]);
+
+    React.useEffect(() => {
+        axios.get(requestUrl).then((response) => {
+            setRoboParams(response.data);
+        }).catch(err => console.log(err));
+    }, []);
+
+    let data = roboParams.map((item, index) => {
+        return (
+            <table key={index}  >
+                <tbody>
+                    <tr>
+                        <td className='title'>Scan Type</td>
+                        <td className='title'>Gain</td>
+                        <td className='title'>Zoom Level</td>
+                        <td className='title'>System Mode</td>
+                        <td className='title'>Depth</td>
+                        <td className='title'>Focus - x</td>
+                        <td className='title'>Focus - y</td>
+                    </tr>
+                    <tr>
+                        <td className='value'>{item.scan_type}</td>
+                        <td className='value'>{item.gain}</td>
+                        <td className='value'>{item.zoom_level}</td>
+                        <td className='value'>{item.system_mode}</td>
+                        <td className='value'>{item.depth}</td>
+                        <td className='value'>{item.x}</td>
+                        <td className='value'>{item.y}</td>
+                    </tr>
+                </tbody>
+            </table>
+        )
+    })
 
     return (
         <div className='video-call-view animate__animated animate__fadeInUp'>
@@ -20,6 +54,7 @@ export default function Call() {
                     Your browser does not support HTML5 video.
                 </video>
             </div>
+
             <div className="menus">
 
                 <div className="robo-params-container">
@@ -27,31 +62,18 @@ export default function Call() {
                         <span className='robo-title'>DOOSAN - A0509</span>
                         <span>edit      </span>
                     </div>
-                    <table  >
-                        <tbody>
-                            <tr>
-                                <td className='title'>Scan Type</td>
-                                <td className='title'>Gain</td>
-                                <td className='title'>Zoom Level</td>
-                                <td className='title'>System Mode</td>
-                                <td className='title'>Depth</td>
-                                <td className='title'>Focus - x</td>
-                                <td className='title'>Focus - y</td>
-                            </tr>
-                            <tr>
-                                <td className='value'>Ultra Sound</td>
-                                <td className='value'>A-6</td>
-                                <td className='value'>5</td>
-                                <td className='value'>Auto</td>
-                                <td className='value'>13.08</td>
-                                <td className='value'>yes</td>
-                                <td className='value'>-</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    {data}
                 </div>
             </div>
-
+            <div className="mini-video-container">
+                <video autoplay muted loop id="mini-video">
+                    <source src={clientVideo} type="video/mp4" />
+                    Your browser does not support HTML5 video.
+                </video>
+                <div className="mini-video-person-container">
+                    <span>Vinm Rosh</span>
+                </div>
+            </div>
             <div className="buttons">
                 <div className="action-buttons">
                     <div className="button-wrapper">
