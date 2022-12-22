@@ -74,6 +74,9 @@ export default function Call() {
                     <span>Vinm Rosh</span>
                 </div>
             </div>
+            <div className="snap-screen">
+                <button onclick="snap()">Take snap</button>
+            </div>
             <div className="buttons">
                 <div className="action-buttons">
                     <div className="button-wrapper">
