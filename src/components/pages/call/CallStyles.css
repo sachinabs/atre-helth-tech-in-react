@@ -108,3 +108,23 @@ td {
 .mini-video-person-container {
     padding: 10px;
 }
+
+
+.snap-screen {
+    position: absolute;
+    top: 30px;
+    left: 0;
+}
+
+.input-data {
+    width: 40px;
+}
+
+.edit {
+    margin-left: 30px;
+    cursor: pointer;
+}
+
+.edit:hover {
+    color: rgb(6, 146, 51);
+}

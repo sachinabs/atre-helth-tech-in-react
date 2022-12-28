@@ -6,12 +6,75 @@ import doctorVideo from './video/video.mp4'
 import axios from "axios";
 import React from "react";
 import { Link } from 'react-router-dom';
+
+import * as htmlToImage from 'html-to-image';
+import { toPng, toJpeg, toBlob, toPixelData, toSvg } from 'html-to-image';
+
+
 export default function Call() {
     const [alert, SetShowAlert] = React.useState(false);
 
     const requestUrl = ` http://localhost:9000/api/sql/getRobo/R001 `
 
     const [roboParams, setRoboParams] = React.useState([]);
+
+    // const [tog]  change the edit button here.
+
+    function takeSnap() {
+        var node = document.getElementById('printMe');
+
+        htmlToImage.toPng(node)
+            .then(function (dataUrl) {
+                const fileName = new Date().toLocaleString().replace(',', '')
+                var img = new Image();
+                img.src = dataUrl;
+                // document.body.appendChild(img);
+                var link = document.createElement('a');
+                link.download = `img-${fileName}`
+                link.href = dataUrl;
+                link.click();
+
+            })
+            .catch(function (error) {
+                console.error('oops, something went wrong!', error);
+            });
+    }
+
+    const [showSave, setShowSave] = React.useState(true);
+
+    function changeToInput() {
+        setShowSave(false)
+        let element = document.querySelectorAll(".inputer");
+
+        for (let index = 0; index < element.length; index++) {
+            console.log(element[index].innerHTML);
+            element[index].innerHTML = `<input type="text" class="input-data" value=${element[index].innerHTML}>`;
+
+        }
+    }
+    function changeText() {
+        setShowSave(true)
+        let updateData = document.querySelectorAll(".input-data")
+
+        let updatedValues = []
+        for (let index = 0; index < updateData.length; index++) {
+            const element = updateData[index].value;
+            updatedValues.push(element);
+
+        }
+        console.log(updatedValues);
+
+        const insetPlaces = document.querySelectorAll(".inputer")
+        const inputNode = document.querySelectorAll(".input-data")
+
+        for (let index = 0; index < insetPlaces.length; index++) {
+            const element = insetPlaces[index];
+            console.log(element);
+            element.appendChild(document.createTextNode(updatedValues[index]))
+            inputNode[index].remove();
+
+        }
+    }
 
     React.useEffect(() => {
         axios.get(requestUrl).then((response) => {
@@ -33,13 +96,13 @@ export default function Call() {
                         <td className='title'>Focus - y</td>
                     </tr>
                     <tr>
-                        <td className='value'>{item.scan_type}</td>
-                        <td className='value'>{item.gain}</td>
-                        <td className='value'>{item.zoom_level}</td>
-                        <td className='value'>{item.system_mode}</td>
-                        <td className='value'>{item.depth}</td>
-                        <td className='value'>{item.x}</td>
-                        <td className='value'>{item.y}</td>
+                        <td className='value inputer'>{item.scan_type}</td>
+                        <td className='value inputer'>{item.gain}</td>
+                        <td className='value inputer'>{item.zoom_level}</td>
+                        <td className='value inputer'>{item.system_mode}</td>
+                        <td className='value inputer'>{item.depth}</td>
+                        <td className='value inputer'>{item.x}</td>
+                        <td className='value inputer'>{item.y}</td>
                     </tr>
                 </tbody>
             </table>
@@ -48,8 +111,8 @@ export default function Call() {
 
     return (
         <div className='video-call-view animate__animated animate__fadeInUp'>
-            <div className="live-video">
-                <video autoplay muted loop id="myVideo">
+            <div className="live-video" id='printMe'>
+                <video autoPlay muted loop id="myVideo">
                     <source src={doctorVideo} type="video/mp4" />
                     Your browser does not support HTML5 video.
                 </video>
@@ -60,13 +123,13 @@ export default function Call() {
                 <div className="robo-params-container">
                     <div className="robo-name-container">
                         <span className='robo-title'>DOOSAN - A0509</span>
-                        <span>edit      </span>
+                        {showSave ? <span className='edit' onClick={() => changeToInput()}> [edit] </span> : <span className='edit' onClick={() => changeText()}> [save] </span>}
                     </div>
                     {data}
                 </div>
             </div>
             <div className="mini-video-container">
-                <video autoplay muted loop id="mini-video">
+                <video autoPlay muted loop id="mini-video">
                     <source src={clientVideo} type="video/mp4" />
                     Your browser does not support HTML5 video.
                 </video>
@@ -75,7 +138,7 @@ export default function Call() {
                 </div>
             </div>
             <div className="snap-screen">
-                <button onclick="snap()">Take snap</button>
+                <button onClick={() => takeSnap()}>Take snap</button>
             </div>
             <div className="buttons">
                 <div className="action-buttons">
